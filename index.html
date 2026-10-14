@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Internet Lucrativa: um guia prático para começar a explorar possibilidades de renda online com mais organização e conhecimento.">
+  <meta name="theme-color" content="#0b0b0d">
+  <title>Internet Lucrativa | Guia Prático</title>
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --panel: #141416;
+      --gold: #d8b35a;
+      --gold-light: #f2d98c;
+      --text: #f7f4ec;
+      --muted: #b9b5aa;
+      --line: rgba(216,179,90,.24);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:76px; }
+    .brand { font-weight:900; letter-spacing:.06em; text-transform:uppercase; }
+    .brand span { color:var(--gold); }
+    .nav a { color:var(--muted); text-decoration:none; font-size:.95rem; }
+    .hero { padding:76px 0 70px; position:relative; overflow:hidden; }
+    .hero:before {
+      content:""; position:absolute; width:440px; height:440px; right:-130px; top:-160px;
+      background:radial-gradient(circle, rgba(216,179,90,.15), transparent 68%); pointer-events:none;
+    }
+    .hero-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center; }
+    .eyebrow { color:var(--gold); font-weight:800; letter-spacing:.16em; text-transform:uppercase; font-size:.78rem; }
+    h1 { font-size:clamp(2.5rem, 6vw, 4.8rem); line-height:1.02; letter-spacing:-.045em; margin:16px 0 22px; }
+    h1 span { color:var(--gold); }
+    .lead { color:var(--muted); font-size:1.15rem; max-width:620px; }
+    .actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:13px 22px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .18s, background .18s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-gold { background:var(--gold); color:#15120a; box-shadow:0 8px 30px rgba(216,179,90,.14); }
+    .btn-outline { border:1px solid var(--line); color:var(--text); }
+    .note { color:#8f8b81; font-size:.84rem; margin-top:14px; }
+    .book-wrap { display:flex; justify-content:center; }
+    .book {
+      width:min(320px, 100%); aspect-ratio: .72; padding:28px; position:relative; overflow:hidden;
+      display:flex; flex-direction:column; justify-content:space-between;
+      background:linear-gradient(145deg,#22201b,#090909 68%); border:1px solid #8c7136;
+      box-shadow:20px 24px 60px rgba(0,0,0,.5), inset 0 0 0 7px rgba(216,179,90,.06);
+      transform:rotate(2deg);
+    }
+    .book:after { content:""; position:absolute; inset:15px; border:1px solid rgba(216,179,90,.35); pointer-events:none; }
+    .book-top, .book-bottom, .book-title { position:relative; z-index:1; }
+    .book-top { color:var(--gold-light); letter-spacing:.2em; font-size:.7rem; font-weight:800; }
+    .book-title { font-size:clamp(2rem,4vw,2.7rem); line-height:1.02; font-weight:950; text-transform:uppercase; }
+    .book-title span { color:var(--gold); }
+    .book-sub { color:#ddd5c1; font-size:.9rem; margin-top:14px; }
+    .book-bottom { color:var(--gold-light); font-size:.75rem; letter-spacing:.12em; }
+    section { padding:68px 0; }
+    .section-head { max-width:700px; margin-bottom:30px; }
+    h2 { font-size:clamp(1.8rem,4vw,2.7rem); line-height:1.12; margin:10px 0 14px; letter-spacing:-.03em; }
+    .section-head p, .muted { color:var(--muted); }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { padding:24px; background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:16px; }
+    .icon { width:42px; height:42px; display:grid; place-items:center; border:1px solid var(--line); border-radius:12px; color:var(--gold); font-size:1.25rem; }
+    .card h3 { margin:16px 0 8px; font-size:1.1rem; }
+    .card p { margin:0; color:var(--muted); font-size:.95rem; }
+    .about { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; }
+    .checklist { list-style:none; padding:0; margin:22px 0 0; }
+    .checklist li { margin:12px 0; color:var(--muted); }
+    .checklist li:before { content:"✓"; color:var(--gold); font-weight:900; margin-right:10px; }
+    .price-card { max-width:760px; margin:0 auto; text-align:center; padding:38px; border-radius:22px; border:1px solid rgba(216,179,90,.38); background:linear-gradient(145deg,#191710,#111113 70%); }
+    .price { font-size:clamp(2.8rem,7vw,4.2rem); font-weight:950; letter-spacing:-.05em; margin:8px 0; }
+    .price small { font-size:1rem; color:var(--muted); font-weight:500; letter-spacing:0; }
+    .price-card .btn { margin-top:18px; min-width:min(100%,270px); }
+    .disclaimer { max-width:650px; margin:18px auto 0; font-size:.82rem; color:#918d83; }
+    footer { border-top:1px solid rgba(255,255,255,.08); padding:28px 0; color:#8f8b81; font-size:.85rem; }
+    .footer-row { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    @media (max-width:760px) {
+      .wrap { width:min(100% - 30px, 600px); }
+      .nav { min-height:66px; }
+      .nav .nav-link { display:none; }
+      .hero { padding:52px 0 48px; }
+      .hero-grid, .about { grid-template-columns:1fr; gap:34px; }
+      .book-wrap { order:-1; }
+      .book { width:240px; }
+      .cards { grid-template-columns:1fr; }
+      section { padding:52px 0; }
+      .price-card { padding:28px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Internet Lucrativa - início" style="text-decoration:none">Internet <span>Lucrativa</span></a>
+      <a class="nav-link" href="#conteudo">O que você vai aprender</a>
+      <a class="nav-link" href="#comprar">Adquirir o guia</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Guia digital • E-book em PDF</div>
+          <h1>Seu primeiro passo para uma <span>renda online</span> mais consciente.</h1>
+          <p class="lead">Conheça o <strong>Internet Lucrativa</strong>, um guia prático para entender caminhos possíveis na internet, organizar suas ideias e começar a aprender do zero.</p>
+          <div class="actions">
+            <a class="btn btn-gold" href="#comprar">Quero conhecer o e-book</a>
+            <a class="btn btn-outline" href="#conteudo">Ver o conteúdo</a>
+          </div>
+          <p class="note">Material educativo. Resultados variam conforme dedicação, experiência e condições individuais.</p>
+        </div>
+        <div class="book-wrap" aria-label="Capa ilustrativa do e-book Internet Lucrativa">
+          <div class="book">
+            <div class="book-top">GUIA PRÁTICO DIGITAL</div>
+            <div>
+              <div class="book-title">Internet<br><span>Lucrativa</span></div>
+              <div class="book-sub">O guia prático para sua primeira renda online</div>
+            </div>
+            <div class="book-bottom">APRENDA • PLANEJE • COMECE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conteudo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">O que você encontra</div>
+          <h2>Comece com informação e um plano simples.</h2>
+          <p>Um ponto de partida para quem quer conhecer melhor as possibilidades de trabalho e projetos digitais.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon" aria-hidden="true">◎</div>
+            <h3>Conheça as possibilidades</h3>
+            <p>Entenda diferentes caminhos para desenvolver projetos e atividades online.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">↗</div>
+            <h3>Organize seus primeiros passos</h3>
+            <p>Transforme ideias em ações pequenas, práticas e mais fáceis de acompanhar.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">◇</div>
+            <h3>Aprenda no seu ritmo</h3>
+            <p>Consulte o material digital quando precisar revisar conceitos e planejar o próximo passo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap about">
+        <div>
+          <div class="eyebrow">Sobre o e-book</div>
+          <h2>Conhecimento para começar com os pés no chão.</h2>
+          <p class="muted">O Internet Lucrativa foi pensado como material introdutório para quem está começando a explorar oportunidades digitais. Use as ideias como ponto de partida, pesquise antes de investir e desconfie de promessas de dinheiro fácil.</p>
+        </div>
+        <div class="card">
+          <h3>Este guia é para quem quer:</h3>
+          <ul class="checklist">
+            <li>Dar os primeiros passos no ambiente digital.</li>
+            <li>Conhecer ideias e possibilidades de renda online.</li>
+            <li>Organizar o aprendizado de forma prática.</li>
+            <li>Construir expectativas realistas e aprender continuamente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="comprar">
+      <div class="wrap">
+        <div class="price-card">
+          <div class="eyebrow">Acesso digital</div>
+          <h2>Internet Lucrativa</h2>
+          <p class="muted">O Guia Prático para sua Primeira Renda Online</p>
+          <div class="price">R$ 19,90 <small>pagamento único</small></div>
+          <p class="muted">E-book digital em PDF. A entrega automática será configurada no checkout.</p>
+          <!-- TROQUE o href abaixo pelo link real do checkout da Kiwify após cadastrar o produto. -->
+          <a class="btn btn-gold" id="buy-button" href="#comprar" aria-describedby="checkout-note">Checkout em configuração</a>
+          <p class="disclaimer" id="checkout-note">O checkout ainda não está conectado. Assim que o produto estiver cadastrado na Kiwify, substitua o link do botão pelo endereço de checkout fornecido pela plataforma. Não publique este botão como compra ativa antes disso.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> Internet Lucrativa</span>
+      <span>Conteúdo educativo. Não há garantia de ganhos financeiros.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Quando tiver o checkout, altere o href do botão para o link real da Kiwify
+    // e troque o texto para "Comprar agora".
+  </script>
+</body>
+</html>
